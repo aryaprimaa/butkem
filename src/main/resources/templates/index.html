@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>Document</title>
+</head>
+<body>
+
+<table>
+    <thead>
+    <tr>
+        <td>Id</td>
+        <td>Nama</td>
+        <td>Description</td>
+        <td>Action</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="data, iter : ${listDepartment}">
+        <td th:text="${data.id}">Data1</td>
+        <td th:text="${data.nama}">Data2</td>
+        <td th:text="${data.description}">Data3</td>
+        <td th:text="${iter.count}">Data4</td>
+    </tr>
+    </tbody>
+</table>
+<hr>
+
+<form action="" th:method="post" th:action="@{/web/test2}" th:object="${data}">
+    <div>
+        <div>
+            <label for="name">Nama</label>
+            <input type="text" name="nama" id="name" th:field="*{nama}"/>
+        </div>
+        <div>
+            <label for="description">Description</label>
+            <textarea name="description" id="description" cols="30" rows="10" th:field="*{description}"></textarea>
+        </div>
+        <div>
+            <button type="submit">Kirim</button>
+            <button type="reset">Rest</button>
+        </div>
+    </div>
+</form>
+</body>
+</html>
